@@ -14,6 +14,7 @@ function square(num) {
 let hundred = square(10);
 console.log(hundred);
 ```
+![](/TA-JS-scope-and-closure-TJaaal/block-BJaags/code/img/lstrcstlno_white_boxer.png)
 
 Create the execution context diagram of the following code line by line.
 
@@ -26,6 +27,7 @@ var five = addFive(0);
 var ten = addFive(5);
 console.log(five, ten);
 ```
+![](/TA-JS-scope-and-closure-TJaaal/block-BJaags/code/img/lstrcstlno_white_boxer.png)
 
 Create the execution context diagram of the following code line by line.
 
@@ -41,6 +43,7 @@ function multiplyArrayByN(arr, n) {
 
 let numbers = multiplyArrayByN(marks);
 ```
+![](/TA-JS-scope-and-closure-TJaaal/block-BJaags/code/img/lstrcstlno_white_boxer.png)
 
 Create the execution context diagram of the following code line by line.
 
@@ -54,7 +57,7 @@ function counter(){
   return increment()
 }
 ```
-
+![](/TA-JS-scope-and-closure-TJaaal/block-BJaags/code/img/lstrcstlno_white_boxer.png)
 Create the execution context diagram of the following code line by line.
 
 ```js
@@ -67,3 +70,4 @@ let counter = function () {
   return increment();
 };
 ```
+![](/TA-JS-scope-and-closure-TJaaal/block-BJaags/code/img/lstrcstlno_white_boxer.png)
