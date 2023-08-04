@@ -33,7 +33,11 @@ Here's how it works. The function has an "accumulator value" which starts as the
 
 ```js
 function reduce(array, callback, initialValue) {
-  return array.reduce(callback,initialValue);
+  let accumulator = initialValue;
+  for(let i=0; i< array.length; i++){
+    accumulator = callback(accumulator, array[i])
+  }
+  return accummulator;
 }
 
 // Test
@@ -47,11 +51,13 @@ reduce(nums, add, 0); //-> 8
 3. Construct a function intersection that compares input arrays and returns a new array with elements found in all of the inputs.
 
 ```js
-function intersection(arrays) {
-let arr = arrays.flat();
-let findDuplicates = arr => arr.filter(item,index) => arr.indexOf(item) !== index;
-let duplicateElements = findDuplicates(arr);
-return duplicateElements;
+function intersection(...arrays){
+  let first = arrays[0];
+  for(i=0; i<arrays.length; i++){
+    second = arrays[i];
+    first = first.filter(item => second.includes(item))
+  }
+  return first;
 }
 
 // Test
@@ -68,15 +74,13 @@ console.log(
 
 ```js
 
-function union(arrays) {
-let arr = arrays.flat();
-let newArr = [];
-arr.forEach(item => {
-  if(newArr.includes(item) === false){
-    newArr.push(item)
+function intersection(...arrays){
+  let first = arrays[0];
+  for(i=0; i<arrays.length; i++){
+    second = arrays[i];
+    first = first.filter(item => !second.includes(item)).concat(second)
   }
-})
-return newArr;
+  return first;
 }
 
 // Test
@@ -86,4 +90,3 @@ console.log(
 ```
 
 
-gi
