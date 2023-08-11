@@ -10,9 +10,9 @@ const lastName = 'Stark';
 var knownAs = 'no one';
 
 console.log(
-  window.firstName,
-  window.lastName,
-  window.knownAs
+  window.firstName, // undefined
+  window.lastName,// undefined
+  window.knownAs // "no one"
 );
 ```
 
@@ -27,40 +27,40 @@ function fullName(a, b) {
   return a + b;
 }
 
-console.log(window.fullName(firstName, lastName));
+console.log(window.fullName(firstName, lastName));//AryaStark
 ```
 
 3. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
-fucntion addOne(num){
+function addOne(num){
   return num + 1;
 }
 var one = addOne(0);
 var two = addOne(1);
-console.log(one, two);
+console.log(one, two);// 1 2
 ```
 
 4. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
 var one = addOne(0);
-fucntion addOne(num){
+function addOne(num){
   return num + 1;
 }
 var two = addOne(1);
-console.log(one, two);
+console.log(one, two);// 1 2
 ```
 
 5. Make a Execution Context Diagram for the following JS and write the output.
 
 ```js
 console.log(addOne(0));
-fucntion addOne(num){
+function addOne(num){
   return num + 1;
 }
 var two = addOne(1);
-console.log(two);
+console.log(two); // 1 2
 ```
 
 6. Make a Execution Context Diagram for the following JS and write the output.
@@ -71,7 +71,7 @@ const addOne = (num) => {
   return num + 1;
 };
 var two = addOne(1);
-console.log(two);
+console.log(two);// typeError addOne is not a function
 ```
 
 7. Make a Execution Context Diagram for the following JS and write the output.
@@ -82,7 +82,7 @@ const addOne = (num) => {
   return num + 1;
 };
 var two = addOne(1);
-console.log(two);
+console.log(two);// typeError addOne is not a function
 ```
 
 8. What will be the output of the following
@@ -95,7 +95,7 @@ function isAwesome() {
   }
   console.log(awesome);
 }
-isAwesome();
+isAwesome();///undefined
 ```
 
 9. What will be the output of the following
@@ -108,7 +108,7 @@ function isAwesome() {
   }
   console.log(awesome);
 }
-isAwesome();
+isAwesome();// true
 ```
 
 10. What will be the output of the following
@@ -121,7 +121,7 @@ function isAwesome() {
   }
   console.log(awesome);
 }
-isAwesome();
+isAwesome();//undefined
 ```
 
 11. What will be the output of the following
@@ -135,7 +135,7 @@ function fullName(a, b) {
   return a + b;
 }
 const name = fullName(firstName, lastName);
-console.log(name);
+console.log(name);//AryaStark
 ```
 
 12. Guess the output of the code below with a reason.
@@ -146,7 +146,9 @@ function sayHello() {
 }
 sayHello();
 
-console.log(name);
+console.log(name);//Arya Stark
+
+// though the value of name is assigned inside function and its blockscopeed. when the function is called name gets declared in the global scope and hense it could be consoled.
 ```
 
 13. Guess the output of the code below with a reason.
@@ -155,7 +157,7 @@ console.log(name);
 if (true) {
   var name = 'Arya Stark';
 }
-console.log(name);
+console.log(name);//Arya Stark becasue condition is true and var is a global scope
 ```
 
 14. Guess the output of the code below with a reason.
@@ -164,7 +166,8 @@ console.log(name);
 if (true) {
   let name = 'Arya Stark';
 }
-console.log(name);
+console.log(name);//Arya Stark
+//the output im recieving for let is eitther blank or arya stark but as per my knowledge it shouldnt have access to let variable 
 ```
 
 15. Guess the output of the code below with a reason.
@@ -173,7 +176,7 @@ console.log(name);
 for (var i = 0; i < 20; i++) {
   //
 }
-console.log(i);
+console.log(i);//here only 20 is logged since i is outside the loop and we will only get the final value of i
 ```
 
 16. Guess the output of the code below with a reason.
@@ -182,7 +185,7 @@ console.log(i);
 for (let i = 0; i < 20; i++) {
   //
 }
-console.log(i);
+console.log(i);//refference error i is not defined since let is block scope we dont get the value of i
 ```
 
 17. Guess the output and the reason behind that.
@@ -194,7 +197,7 @@ function sample() {
   }
   console.log(username);
 }
-sample();
+sample();// John Snow because the if condition is true and username is assigned to jhon snow and when the function is called the value of username is logged.
 ```
 
 18. Guess the output and the reason behind that.
@@ -206,7 +209,7 @@ function sample() {
   }
   console.log(username);
 }
-sample();
+sample();// refference error username undefinned because let is blockscope nd console.log doesnt have access to username
 ```
 
 19. Guess the output and the reason behind that.
@@ -220,7 +223,7 @@ function sample() {
   }
   console.log(username, 'second');
 }
-sample();
+sample();// John Snow John Snow second since the condition is true usernme gets changed to John Snow inside the if condition as well as global scope since the value of var since its global scope is completely updated.
 ```
 
 20. Guess the output and the reason behind that.
@@ -234,7 +237,7 @@ function sample() {
   }
   console.log(username, 'second');
 }
-sample();
+sample();// in this case username first will be john snow since its a block scope and the value is applicable only wwithin the flower brackets while username second will be arya stark
 ```
 
 21. Guess the output and the reason behind that.
@@ -248,6 +251,10 @@ function sample(...args) {
 }
 
 sample('First', 'Second', 'Third');
+//Hello I am first
+//Hello I am second
+//Hello I am third
+//we get the above output because the arguments are string type and we use the for loop to go through each arguement and for each loop we assign a different value of message and within the loop itself we log the value of message and then move on to the next loop.
 ```
 
 22. Guess the output and the reason behind that.
@@ -261,6 +268,7 @@ function sample(...args) {
 }
 
 sample('First', 'Second', 'Third');
+//this output is similar to the previous one as let and const within a block scope acts the same.
 ```
 
 23. Guess the output and the reason behind that.
@@ -274,6 +282,8 @@ if (true) {
   let username = 'Hello World!';
   myFunc();
 }
+
+//refference error as username cannot be accessed
 ```
 
 24. Guess the output and the reason behind that.
@@ -290,6 +300,8 @@ function outer() {
 }
 
 outer();
+//I love this movie called MAD MAX: FURY ROAD
+//in the function definition of outer we have inner function definition and the definition of movies and finally it returns the function call of inner and hense well get the function excecution of inner as final output.
 ```
 
 25. Guess the output and the reason behind that.
@@ -307,6 +319,8 @@ function outer() {
 }
 
 outer();
+//I love this movie called BEFORE SUNRISE
+// in this case since let is block scope and movie is redefined in the function definition of inner the final value of movies will be before sunrise.
 ```
 
 26. Guess the output and the reason behind that.
@@ -327,6 +341,8 @@ function outer() {
   inner();
 }
 outer();
+//I love this movie called GONE GIRL
+//in this case same like the previous case since the final output is consol.log the value of movie. and the last assigned value of movie is gone girl, we will get the out as such 
 ```
 
 30. Using reduce find the final value when the initial value passed is `100`. You have to pass the output of one function into the input of next function in the array `allFunctions` starts with `addOne` ends with `half`.
@@ -353,6 +369,10 @@ let allFunctions = [
   multiplyThree,
   half,
 ];
+
+allFunctions.reduce((acc,cv)=>{
+  acc + cv(acc)
+},100)
 
 // Answer is: 447
 ```
