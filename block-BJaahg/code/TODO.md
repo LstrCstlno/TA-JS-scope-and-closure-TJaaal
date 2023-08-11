@@ -371,7 +371,7 @@ let allFunctions = [
 ];
 
 allFunctions.reduce((acc,cv)=>{
-  acc + cv(acc)
+  return cv(acc)
 },100)
 
 // Answer is: 447
