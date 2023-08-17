@@ -6,7 +6,11 @@ The returned function accepts a sentence. If the sentence contains the `fromWord
 
 ```js
 function censor(fromWord, toWord) {
-  //  Your code goes here
+  return function(string){
+    if(string.includes(fromWord)){
+      return string.replace(fromWord, toWord)
+    }
+  }
 }
 
 let censorSentence = censor('World', 'Sam');
@@ -24,8 +28,17 @@ The returned function either accepts two parameter or one parameter.
 - When you pass one parameter it should return a string with words replaced with the required words.
 
 ```js
+let array = [];
 function multipleCensor() {
-  //  Your code goes here
+  return function(string1, string2){
+    if(string1 && string2){
+      array.push([string1, string2])
+    }
+    else{
+      array.forEach(arr => string1 = string1.replace(arr[0], arr[1]))
+      return string1
+    }
+  }
 }
 
 let censorQuote = multipleCensor();
@@ -49,8 +62,17 @@ The returned function accepts one parameter.
 - If the parameter is the same as the password it will return the object in which we stored the values.
 
 ```js
-function createCache() {
-  // Your code goes here
+function createCache(callback,password) {
+  let object = {}
+  return function(arg){
+    if(arg === password){
+      return object
+    }
+    else{
+      object[arg] = callback(arg);
+      return callback(arg)
+    }
+  }
 }
 
 function add10(num) {
@@ -69,12 +91,20 @@ addCache('foo'); // {12: 22, 100: 110, 1: 11}
 4. Change the above function in such a way that when the returned function is called with any other value than password. It should first check the object where we are storing the argument and return value. If the key is present return the value form the object itself. Otherwise call the callback function with the parameter.
 
 ```js
-function createCache() {
-  // Your code goes here
-}
-
-function add10(num) {
-  return num + 10;
+function createCache(callback,password) {
+  let object = {}
+  return function(arg){
+    if(arg !== password && !object[arg]){
+      object[arg] = callback(arg);
+      return callback(arg)
+    }
+    else if(object[arg]){
+      return object[arg]
+    }
+    else if(arg === password){
+      return object
+    }
+  }
 }
 
 let addCache = createCache(add10, 'foo');
